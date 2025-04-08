@@ -16,6 +16,11 @@ return {
         -- - sr)'  - [S]urround [R]eplace [)] [']
         require('mini.surround').setup()
 
+        -- gc -> toggle comment for both normal and visual mode
+        -- gcc -> toggle comment on current line
+        -- gc -> toggle comment on visual selection
+        require('mini.comment').setup()
+
         -- Simple and easy statusline.
         --  You could remove this setup call if you don't like it,
         --  and try some other statusline plugin
