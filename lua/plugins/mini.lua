@@ -21,6 +21,10 @@ return {
         -- gc -> toggle comment on visual selection
         require('mini.comment').setup()
 
+        -- alt + hjkl -> move selected
+        -- alt + hjkl -> move current line in normal mode
+        require('mini.move').setup()
+
         -- Simple and easy statusline.
         --  You could remove this setup call if you don't like it,
         --  and try some other statusline plugin
