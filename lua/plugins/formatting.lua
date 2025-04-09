@@ -8,6 +8,8 @@ return {
             function()
                 require('conform').format({ async = true, lsp_format = 'fallback' })
             end,
+            mode = '',
+            desc = '[F]ormat buffer',
         },
     },
     opts = {
@@ -26,6 +28,7 @@ return {
         formatters_by_ft = {
             lua = { 'stylua' },
             cpp = { 'clang-format' },
+            python = { 'black' },
         },
     },
 }
