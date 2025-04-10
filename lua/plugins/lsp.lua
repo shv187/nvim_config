@@ -139,6 +139,8 @@ return {
                 'gofumpt',
                 'goimports',
                 'black',
+                'cmake-language-server',
+                'cmakelang',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
