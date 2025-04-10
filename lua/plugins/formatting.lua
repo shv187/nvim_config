@@ -29,6 +29,8 @@ return {
             lua = { 'stylua' },
             cpp = { 'clang-format' },
             python = { 'black' },
+            go = { 'gofumpt', 'goimports' },
+            cmake = { 'cmake-language-server', 'cmakelang' },
         },
     },
 }
