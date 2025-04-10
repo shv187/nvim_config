@@ -127,6 +127,19 @@ return {
                         },
                     },
                 },
+
+                neocmake = {
+                    init_options = {
+                        format = {
+                            enable = true,
+                        },
+                        lint = {
+                            enable = true,
+                        },
+                        scan_cmake_in_package = false,
+                        semantic_token = false,
+                    },
+                },
             }
 
             local ensure_installed = vim.tbl_keys(servers or {})
@@ -139,8 +152,6 @@ return {
                 'gofumpt',
                 'goimports',
                 'black',
-                'cmake-language-server',
-                'cmakelang',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
