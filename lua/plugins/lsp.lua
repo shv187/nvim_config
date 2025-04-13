@@ -140,6 +140,8 @@ return {
                         semantic_token = false,
                     },
                 },
+                html = {},
+                htmx = {},
             }
 
             local ensure_installed = vim.tbl_keys(servers or {})
@@ -152,6 +154,8 @@ return {
                 'gofumpt',
                 'goimports',
                 'black',
+                'htmlhint',
+                'prettier',
             })
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 

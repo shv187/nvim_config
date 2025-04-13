@@ -30,6 +30,7 @@ return {
             cpp = { 'clang-format' },
             python = { 'black' },
             go = { 'gofumpt', 'goimports' },
+            html = { 'prettier' },
         },
     },
 }
