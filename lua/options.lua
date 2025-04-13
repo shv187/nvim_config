@@ -42,3 +42,5 @@ vim.opt.scrolloff = 10
 
 -- :q on unsaved buffer creates a dialog
 vim.opt.confirm = true
+
+vim.opt.termguicolors = true
