@@ -142,6 +142,7 @@ return {
                 },
                 html = {},
                 htmx = {},
+                cssls = {},
             }
 
             local ensure_installed = vim.tbl_keys(servers or {})

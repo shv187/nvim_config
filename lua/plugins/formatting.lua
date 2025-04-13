@@ -31,6 +31,7 @@ return {
             python = { 'black' },
             go = { 'gofumpt', 'goimports' },
             html = { 'prettier' },
+            css = { 'prettier' },
         },
     },
 }
