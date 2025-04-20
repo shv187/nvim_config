@@ -58,7 +58,7 @@ return {
                 model = 'claude-3-5-sonnet-20241022', -- 'claude-3-7-sonnet-20250219',
                 temperature = 0,
                 tokens = 4096,
-                timeout = 120, -- recommended to keep very high
+                timeout = 300, -- recommended to keep very high
             },
             settings = {
                 context = 500, -- lines above and below the selected text passed to the model as context
