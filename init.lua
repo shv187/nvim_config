@@ -7,4 +7,3 @@ vim.g.have_nerd_font = true
 require('options')
 require('keybinds')
 require('setup_lazy')
-require('colorscheme_loader')
