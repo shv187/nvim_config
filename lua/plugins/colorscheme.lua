@@ -100,7 +100,12 @@ local possible_colorschemes = {
         name = 'gruvbox',
         lazy = false,
         priority = 1000,
-        opts = {},
+        opts = {
+            italic = {
+                strings = false,
+                comments = false,
+            },
+        },
     },
 }
 
