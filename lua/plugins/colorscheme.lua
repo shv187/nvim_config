@@ -24,19 +24,80 @@ local possible_colorschemes = {
         'datsfilipe/vesper.nvim',
         name = 'vesper',
     },
-    { 'catppuccin/nvim', name = 'catppuccin', lazy = false, priority = 1000 },
+    {
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        lazy = false,
+        priority = 1000,
+    },
     {
         'Mofiqul/vscode.nvim',
         name = 'vscode',
         lazy = false,
         priority = 1000,
     },
-    { 'EdenEast/nightfox.nvim', name = 'nightfox', lazy = false, priority = 1000 },
-    { 'projekt0n/github-nvim-theme', name = 'github', lazy = false, priority = 1000 },
-    { 'slugbyte/lackluster.nvim', name = 'lackluster', lazy = false, priority = 1000 },
+    {
+        'EdenEast/nightfox.nvim',
+        name = 'nightfox',
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        name = 'github',
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        'slugbyte/lackluster.nvim',
+        name = 'lackluster',
+        lazy = false,
+        priority = 1000,
+    },
     {
         'wtfox/jellybeans.nvim',
         name = 'jellybeans',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        'marko-cerovac/material.nvim',
+        name = 'material',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        'sainnhe/sonokai',
+        name = 'sonokai',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        'sainnhe/gruvbox-material',
+        name = 'gruvbox-material',
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        'thesimonho/kanagawa-paper.nvim',
+        name = 'kanagawa-paper',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        'Yazeed1s/minimal.nvim',
+        name = 'minimal',
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        'ellisonleao/gruvbox.nvim',
+        name = 'gruvbox',
         lazy = false,
         priority = 1000,
         opts = {},
@@ -58,7 +119,8 @@ end
 -- SETTINGS
 ------------------------------------------------
 vim.opt.background = 'dark'
-local selected_scheme_name = 'jellybeans'
+local selected_scheme_name = 'gruvbox'
+local DEBUG_load_all = false
 ------------------------------------------------
 
 -- utility function
@@ -94,4 +156,8 @@ local function craft_our_colorscheme(colorscheme_name)
     return scheme
 end
 
-return { craft_our_colorscheme(selected_scheme_name) }
+if DEBUG_load_all then
+    return possible_colorschemes
+else
+    return { craft_our_colorscheme(selected_scheme_name) }
+end
