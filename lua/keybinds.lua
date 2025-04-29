@@ -11,6 +11,23 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', 'vaa', 'gg<S-V>G', { desc = 'Select everything' })
 
+vim.keymap.set('n', '<leader>_', '<C-W>s', { desc = 'Split Window Horizontally' })
+vim.keymap.set('n', '<leader>\\', '<C-W>v', { desc = 'Split Window Vertically' })
+
+vim.keymap.set('n', 'U', '<C-r>', { desc = 'Redo' })
+
+-- todo: move it to the top and change everything to this
+local map = vim.keymap.set
+
+-- find a way to actually create tabs in a simple _way_
+map('n', ']<tab>', '<cmd>tabnext<cr>', { desc = 'Next Tab' })
+map('n', '[<tab>', '<cmd>tabprevious<cr>', { desc = 'Previous Tab' })
+map('n', '<tab>', '<cmd>tabnext<cr>', { desc = 'Next Tab' })
+map('n', '<s-tab>', '<cmd>tabprevious<cr>', { desc = 'Previous Tab' })
+for i = 1, 9 do
+    map('n', '<leader><tab>' .. i, '<cmd>tabn ' .. i .. '<cr>', { desc = 'Tab ' .. i })
+end
+
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
