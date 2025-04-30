@@ -47,7 +47,7 @@ vim.opt.termguicolors = true
 
 local use_pwsh = true
 
-if use_pwsh and vim.fn.has('win32') then
+if use_pwsh and vim.fn.has('win32') == 1 then
     vim.cmd('set shell=pwsh')
     vim.o.shellcmdflag =
         '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
