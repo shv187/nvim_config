@@ -112,7 +112,16 @@ return {
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             local servers = {
-                clangd = {},
+                clangd = {
+                    on_attach = function(_, bufnr)
+                        vim.keymap.set('n', '<A-u>', vim.cmd.ClangdSwitchSourceHeader, { buffer = bufnr, desc = 'Switch between so[u]rce / header' })
+                    end,
+                    cmd = {
+                        'clangd',
+                        '--background-index',
+                        -- '--header-insertion=never',
+                    },
+                },
                 gopls = {},
                 pyright = {},
                 rust_analyzer = {},
