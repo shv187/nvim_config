@@ -36,6 +36,7 @@ return {
                     map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
                     map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
                     map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                    map('K', vim.lsp.buf.hover, 'Get Hover Info')
 
                     local function client_supports_method(client, method, bufnr)
                         if vim.fn.has('nvim-0.11') == 1 then
