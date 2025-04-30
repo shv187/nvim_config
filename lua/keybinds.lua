@@ -28,6 +28,18 @@ for i = 1, 9 do
     map('n', '<leader><tab>' .. i, '<cmd>tabn ' .. i .. '<cr>', { desc = 'Tab ' .. i })
 end
 
+-- yank to clipboard
+map({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+
+-- delete without trashing register
+map({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without trashing register' })
+
+map('n', '<leader>fruc', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Find and replace word under cursor' })
+
+-- better block moving
+map('v', '<', '<gv')
+map('v', '>', '>gv')
+
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
