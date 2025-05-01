@@ -105,6 +105,7 @@ local possible_colorschemes = {
                 strings = false,
                 comments = false,
             },
+            transparent_mode = true,
         },
     },
 }
@@ -131,7 +132,7 @@ local DEBUG_load_all = false
 -- utility function
 local function craft_our_colorscheme(colorscheme_name)
     -- get our selected scheme from table or the first one if we cant find it
-    local scheme = get_colorscheme_by_name(selected_scheme_name)
+    local scheme = get_colorscheme_by_name(colorscheme_name)
         or function()
             local backup_scheme = possible_colorschemes[1]
             vim.print("Couldn't load selected colorscheme, loading backup one: " .. backup_scheme.name)
