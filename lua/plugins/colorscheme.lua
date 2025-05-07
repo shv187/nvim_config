@@ -108,6 +108,17 @@ local possible_colorschemes = {
             transparent_mode = true,
         },
     },
+    {
+        'webhooked/kanso.nvim',
+        name = 'kanso',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            theme = 'ink',
+            disableItalics = true,
+            transparent = true,
+        },
+    },
 }
 
 -- utility function
@@ -125,7 +136,7 @@ end
 -- SETTINGS
 ------------------------------------------------
 vim.opt.background = 'dark'
-local selected_scheme_name = 'gruvbox'
+local selected_scheme_name = 'kanso'
 local DEBUG_load_all = false
 ------------------------------------------------
 
