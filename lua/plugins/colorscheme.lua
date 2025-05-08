@@ -6,7 +6,9 @@ local possible_colorschemes = {
         name = 'kanagawa',
         lazy = false,
         priority = 1000,
-        opts = {},
+        opts = {
+            theme = 'dragon',
+        },
     },
     {
         'rose-pine/neovim',
@@ -88,13 +90,13 @@ local possible_colorschemes = {
         priority = 1000,
         opts = {},
     },
-    {
-        'Yazeed1s/minimal.nvim',
-        name = 'minimal',
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
+    -- {
+    --     'Yazeed1s/minimal.nvim',
+    --     name = 'minimal',
+    --     lazy = false,
+    --     priority = 1000,
+    --     opts = {},
+    -- },
     {
         'ellisonleao/gruvbox.nvim',
         name = 'gruvbox',
@@ -136,7 +138,7 @@ end
 -- SETTINGS
 ------------------------------------------------
 vim.opt.background = 'dark'
-local selected_scheme_name = 'kanso'
+local selected_scheme_name = 'kanagawa'
 local DEBUG_load_all = false
 ------------------------------------------------
 
