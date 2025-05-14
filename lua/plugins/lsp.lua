@@ -110,47 +110,41 @@ return {
             })
 
             local servers = {
-                clangd = {
-                    on_attach = function(_, bufnr)
-                        vim.keymap.set('n', '<A-u>', vim.cmd.ClangdSwitchSourceHeader, { buffer = bufnr, desc = 'Switch between so[u]rce / header' })
-                    end,
-                    cmd = {
-                        'clangd',
-                        '--background-index',
-                        -- '--header-insertion=never',
-                    },
-                },
+                clangd = {},
                 gopls = {},
                 pyright = {},
                 rust_analyzer = {},
 
-                lua_ls = {
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = 'Replace',
-                            },
-                            -- diagnostics = { disable = { 'missing-fields' } },
-                        },
-                    },
-                },
+                lua_ls = {},
+                -- lua_ls = {
+                --     settings = {
+                --         Lua = {
+                --             completion = {
+                --                 callSnippet = 'Replace',
+                --             },
+                --             -- diagnostics = { disable = { 'missing-fields' } },
+                --         },
+                --     },
+                -- },
 
-                neocmake = {
-                    init_options = {
-                        format = {
-                            enable = true,
-                        },
-                        lint = {
-                            enable = true,
-                        },
-                        scan_cmake_in_package = false,
-                        semantic_token = false,
-                    },
-                },
+                neocmake = {},
+                -- neocmake = {
+                --     init_options = {
+                --         format = {
+                --             enable = true,
+                --         },
+                --         lint = {
+                --             enable = true,
+                --         },
+                --         scan_cmake_in_package = false,
+                --         semantic_token = false,
+                --     },
+                -- },
                 html = {},
                 htmx = {},
                 cssls = {},
-                antlersls = {},
+                -- tsserver = {},
+                denols = {},
             }
 
             local rest = {
@@ -169,29 +163,15 @@ return {
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, rest)
 
-            require('mason-tool-installer').setup({ ensure_installed = ensure_installed, debounce_hours = 24 })
+            require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
-            -- local capabilities = require('blink.cmp').get_lsp_capabilities()
+            -- local lsp_capabilities = require('blink.cmp').get_lsp_capabilities()
 
-            -- nvim 0.11.0+
-            for server, config in pairs(servers) do
-                -- config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-                vim.lsp.config(server, config)
-                vim.lsp.enable(server)
-            end
-
-            -- nvim <= 0.10.x
-            -- require('mason-lspconfig').setup({
-            --     ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-            --     automatic_enable = true,
-            --     handlers = {
-            --         function(server_name)
-            --             local server = servers[server_name] or {}
-            --             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            --             require('lspconfig')[server_name].setup(server)
-            --         end,
-            --     },
+            -- vim.lsp.config('*', {
+            --     capabilities = vim.tbl_deep_extend('force', {}, lsp_capabilities, capabilities or {}),
             -- })
+
+            vim.lsp.enable(vim.tbl_keys(servers or {}))
         end,
     },
 }

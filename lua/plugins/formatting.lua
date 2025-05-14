@@ -32,6 +32,8 @@ return {
             go = { 'gofumpt', 'goimports' },
             html = { 'prettier' },
             css = { 'prettier' },
+            javascript = { 'prettier' },
+            typescript = { 'prettier' },
         },
     },
 }
