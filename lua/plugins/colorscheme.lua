@@ -7,6 +7,7 @@ local possible_colorschemes = {
         lazy = false,
         priority = 1000,
         opts = {
+            undercurl = true,
             theme = 'dragon',
         },
     },

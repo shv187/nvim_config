@@ -110,41 +110,16 @@ return {
             })
 
             local servers = {
-                clangd = {},
-                gopls = {},
-                pyright = {},
-                rust_analyzer = {},
-
-                lua_ls = {},
-                -- lua_ls = {
-                --     settings = {
-                --         Lua = {
-                --             completion = {
-                --                 callSnippet = 'Replace',
-                --             },
-                --             -- diagnostics = { disable = { 'missing-fields' } },
-                --         },
-                --     },
-                -- },
-
-                neocmake = {},
-                -- neocmake = {
-                --     init_options = {
-                --         format = {
-                --             enable = true,
-                --         },
-                --         lint = {
-                --             enable = true,
-                --         },
-                --         scan_cmake_in_package = false,
-                --         semantic_token = false,
-                --     },
-                -- },
-                html = {},
-                htmx = {},
-                cssls = {},
-                -- tsserver = {},
-                denols = {},
+                'clangd',
+                'gopls',
+                'pyright',
+                'rust_analyzer',
+                'lua_ls',
+                'neocmake',
+                'html',
+                'htmx',
+                'cssls',
+                'denols',
             }
 
             local rest = {
@@ -160,18 +135,25 @@ return {
                 'prettier',
             }
 
-            local ensure_installed = vim.tbl_keys(servers or {})
+            local ensure_installed = servers
             vim.list_extend(ensure_installed, rest)
 
             require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
-            -- local lsp_capabilities = require('blink.cmp').get_lsp_capabilities()
+            vim.lsp.config('clangd', {
+                cmd = {
+                    'clangd',
+                    '--background-index',
+                    '--header-insertion=never',
+                },
+            })
 
+            -- local lsp_capabilities = require('blink.cmp').get_lsp_capabilities()
             -- vim.lsp.config('*', {
             --     capabilities = vim.tbl_deep_extend('force', {}, lsp_capabilities, capabilities or {}),
             -- })
 
-            vim.lsp.enable(vim.tbl_keys(servers or {}))
+            vim.lsp.enable(servers)
         end,
     },
 }
