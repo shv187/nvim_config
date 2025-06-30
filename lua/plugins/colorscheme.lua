@@ -9,6 +9,8 @@ local possible_colorschemes = {
         opts = {
             undercurl = true,
             theme = 'dragon',
+            keywordStyle = { italic = false },
+            commentStyle = { italic = false },
         },
     },
     {
