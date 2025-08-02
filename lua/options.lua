@@ -56,3 +56,5 @@ if use_pwsh and vim.fn.has('win32') == 1 then
     vim.o.shellquote = ''
     vim.o.shellxquote = ''
 end
+
+vim.o.winborder = 'rounded'
