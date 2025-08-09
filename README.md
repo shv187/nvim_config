@@ -52,3 +52,8 @@ git clone https://github.com/shv187/nvim_config.git "${env:LOCALAPPDATA}\nvim"
 ```
 
 </details>
+
+## TODO
+- fix markdown support
+- cleanup keybinds/plugins
+- fix cmake support/completion
