@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     'sphamba/smear-cursor.nvim',
     opts = {
         stiffness = 0.95, -- 0.6      [0, 1]
